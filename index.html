@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luxury Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="quiz-app">
+    <div class="top-bar">
+      <label for="student-select">👤 Select Student:</label>
+      <select id="student-select">
+        <option value="">-- Select Student --</option>
+      </select>
+    </div>
+
+    <div id="quiz-container">
+      
+      <!-- Start Screen (Level Select) -->
+      <div id="start-screen" class="screen active">
+        <h1>✨ Select a Level</h1>
+        <ul id="level-list"></ul>
+      </div>
+
+      <!-- Quiz List Screen -->
+      <div id="quiz-list-screen" class="screen hidden">
+        <h1>📚 Select a Quiz</h1>
+        <ul id="quiz-list"></ul>
+      </div>
+
+      <!-- Question Screen -->
+      <div id="question-screen" class="screen hidden">
+        <div class="quiz-header">
+          <div class="question-number">
+            Question <span id="current-q">1</span> of <span id="total-q">10</span>
+          </div>
+          <div class="timer">⏱ <span id="timer">30</span>s</div>
+        </div>
+
+        <h2 id="quiz-title" class="quiz-title">Quiz</h2>
+        <h2 id="question-text"></h2>
+        <ul id="options-list"></ul>
+      </div>
+
+      <!-- Result Screen -->
+      <div id="result-screen" class="screen hidden">
+        <h1>🎉 Quiz Completed</h1>
+        <p id="score-text"></p>
+        <button onclick="location.reload()">Try Another Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="quizzes.js"></script>
+  <script src="quizzes/islamic.js"></script>
+  <script src="quizzes/gk.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
