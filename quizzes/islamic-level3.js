@@ -81,7 +81,7 @@ quizzes.push(
   },
   {
   title: "Understanding Harakaat in Arabic",
-  level: 2, quiz: 6,
+  level: "Rules", quiz: 6,
   questions: [
     { 
       question: "What are Harakaat in Arabic?", 
