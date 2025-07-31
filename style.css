@@ -7,45 +7,74 @@
 
 body {
   margin: 0;
-  padding: 0; /* Remove padding to allow perfect centering */
+  padding: 0;
   font-family: "Quicksand", sans-serif;
   background: radial-gradient(circle at top left, #101010, #0c0c0c 80%);
   color: #f4f4f4;
   display: flex;
   justify-content: center;
-  align-items: center; /* <-- This centers vertically */
+  align-items: center;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
+  z-index: 1;
 }
 
-body::before {
+/* Soft glowing animated layers */
+body::before,
+body::after {
   content: "";
   position: fixed;
   top: -50%;
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(
-      ellipse at center,
-      rgba(255, 235, 59, 0.05),
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse at bottom right,
-      rgba(0, 255, 204, 0.05),
-      transparent 70%
-    );
-  animation: bgMove 15s infinite linear;
+  background: 
+    radial-gradient(ellipse at 30% 30%, rgba(255, 235, 59, 0.06), transparent 60%),
+    radial-gradient(ellipse at 70% 80%, rgba(0, 255, 204, 0.04), transparent 70%);
+  animation: bgMove 40s infinite linear;
   z-index: 0;
+  pointer-events: none;
 }
+
+body::after {
+  animation-direction: reverse;
+  opacity: 0.6;
+  filter: blur(20px);
+}
+
+/* Sparkles */
+#sparkle-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: sparkleMove 20s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
 @keyframes bgMove {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(360deg) scale(1);
   }
 }
+
+@keyframes sparkleMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
 
 #quiz-app {
   width: 100%;
