@@ -26,9 +26,7 @@ const scoreText = document.getElementById("score-text");
 const quizTitle = document.getElementById("quiz-title");
 const backButton = document.getElementById("back-button");
 
-const studentDisplay = document.createElement("div");
-studentDisplay.id = "student-display";
-document.body.appendChild(studentDisplay);
+const studentDisplay = document.getElementById("student-display");
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
