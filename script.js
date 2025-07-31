@@ -1,3 +1,4 @@
+
 let current = 0;
 let score = 0;
 let timer;
@@ -6,13 +7,13 @@ let currentQuiz = null;
 let currentStudent = "";
 let currentLevel = null;
 let currentQuizIndex = null;
+let viewStack = [];
 
 const startScreen = document.getElementById("start-screen");
 const quizListScreen = document.getElementById("quiz-list-screen");
 const questionScreen = document.getElementById("question-screen");
 const resultScreen = document.getElementById("result-screen");
 
-const studentSelect = document.getElementById("student-select");
 const levelList = document.getElementById("level-list");
 const quizList = document.getElementById("quiz-list");
 
@@ -23,6 +24,11 @@ const totalQ = document.getElementById("total-q");
 const timerDisplay = document.getElementById("timer");
 const scoreText = document.getElementById("score-text");
 const quizTitle = document.getElementById("quiz-title");
+const backButton = document.getElementById("back-button");
+
+const studentDisplay = document.createElement("div");
+studentDisplay.id = "student-display";
+document.body.appendChild(studentDisplay);
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
@@ -31,98 +37,148 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 100);
 });
 
-function loadStudents() {
-  const list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
-  studentSelect.innerHTML = `<option value="">-- Select Student --</option>`;
-  list.forEach(name => {
-    const option = document.createElement("option");
-    option.value = name;
-    option.textContent = name;
-    studentSelect.appendChild(option);
+backButton.addEventListener("click", () => {
+  goBack();
+});
+
+function showScreen(screen) {
+  [startScreen, quizListScreen, questionScreen, resultScreen].forEach(s => {
+    s.classList.add("hidden");
+    s.classList.remove("active");
   });
 
-  studentSelect.addEventListener("change", () => {
-    currentStudent = studentSelect.value;
-    loadLevels(); // Reload levels with indicators
+  screen.classList.remove("hidden");
+  screen.classList.add("active");
+
+  backButton.style.display = viewStack.length > 0 ? "inline-block" : "none";
+  studentDisplay.textContent = currentStudent ? `👤 ${currentStudent}` : "";
+}
+
+function goBack() {
+  const last = viewStack.pop();
+  if (!last) return;
+  showScreen(last);
+}
+
+function loadStudents() {
+  const list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
+  const dropdown = document.getElementById("student-dropdown");
+  const selected = dropdown.querySelector(".dropdown-selected");
+  const optionsList = dropdown.querySelector(".dropdown-options");
+
+  optionsList.innerHTML = "";
+  if (!currentStudent) selected.textContent = "-- Select Student --";
+
+  list.forEach(name => {
+    const li = document.createElement("li");
+    li.textContent = name;
+    li.classList.add("quiz-option");
+
+    li.addEventListener("click", (e) => {
+      e.stopPropagation();
+      selected.textContent = name;
+      currentStudent = name;
+      dropdown.classList.remove("open");
+      loadLevels();
+    });
+
+    optionsList.appendChild(li);
+  });
+
+  dropdown.querySelector(".dropdown-selected").addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle("open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("open");
+    }
   });
 }
 
 function loadLevels() {
   levelList.innerHTML = "";
   const levels = [...new Set(quizzes.map(q => q.level))];
-  const lastAnswered = JSON.parse(localStorage.getItem("lastAnswered") || "[]");
-  const studentProgress = lastAnswered.filter(entry => entry.student === currentStudent);
+  const progress = getStudentProgress();
 
   levels.forEach(level => {
     const li = document.createElement("li");
     li.textContent = `Level ${level}`;
     li.classList.add("quiz-option");
 
-    const hasProgress = studentProgress.some(entry => entry.level === level);
-    if (hasProgress) {
+    if (progress.some(p => p.level === level && p.question < p.total)) {
       const dot = document.createElement("span");
       dot.classList.add("progress-dot");
       li.appendChild(dot);
     }
 
-    li.addEventListener("click", () => showQuizzes(level));
+    li.addEventListener("click", () => {
+      viewStack.push(startScreen);
+      showQuizzes(level);
+    });
+
     levelList.appendChild(li);
   });
+
+  showScreen(startScreen);
 }
 
 function showQuizzes(level) {
   currentLevel = level;
   quizList.innerHTML = "";
-  startScreen.classList.add("hidden");
-  startScreen.classList.remove("active");
-  quizListScreen.classList.remove("hidden");
-  quizListScreen.classList.add("active");
-
-  const lastAnswered = JSON.parse(localStorage.getItem("lastAnswered") || "[]");
-  const studentProgress = lastAnswered.filter(entry => entry.student === currentStudent);
+  const progress = getStudentProgress();
 
   quizzes.forEach((quiz, index) => {
-    if (quiz.level === level) {
-      const li = document.createElement("li");
-      li.textContent = quiz.title;
-      li.classList.add("quiz-option");
+    if (quiz.level !== level) return;
 
-      const hasProgress = studentProgress.some(
-        entry => entry.level === quiz.level && entry.quiz === quiz.quiz
-      );
+    const li = document.createElement("li");
+    li.textContent = quiz.title;
+    li.classList.add("quiz-option");
 
-      if (hasProgress) {
+    const saved = progress.find(p =>
+      p.level === quiz.level && p.quiz === quiz.quiz
+    );
+
+    if (saved) {
+      if (saved.highestPercentage > 0) {
+        const percent = document.createElement("span");
+        percent.classList.add("score-info");
+        percent.textContent = ` (${saved.highestPercentage}%)`;
+        li.appendChild(percent);
+      }
+      if (saved.question < saved.total) {
         const dot = document.createElement("span");
         dot.classList.add("progress-dot");
         li.appendChild(dot);
       }
-
-      li.addEventListener("click", () => startQuiz(index));
-      quizList.appendChild(li);
     }
+
+    li.addEventListener("click", () => {
+      viewStack.push(quizListScreen);
+      startQuiz(index);
+    });
+
+    quizList.appendChild(li);
   });
+
+  showScreen(quizListScreen);
 }
 
 function startQuiz(index) {
   currentQuiz = quizzes[index];
   currentQuizIndex = index;
-  score = 0;
   quizTitle.textContent = currentQuiz.title;
 
-  const lastAnswered = JSON.parse(localStorage.getItem("lastAnswered") || "[]");
-  const studentProgress = lastAnswered.find(entry =>
-    entry.student === currentStudent &&
-    entry.level === currentQuiz.level &&
-    entry.quiz === currentQuiz.quiz
+  const saved = getStudentProgress().find(p =>
+    p.level === currentQuiz.level && p.quiz === currentQuiz.quiz
   );
 
-  current = studentProgress ? studentProgress.question : 0;
+  const isCompleted = saved && saved.question >= currentQuiz.questions.length;
+  current = isCompleted ? 0 : saved?.question || 0;
+  score = isCompleted ? 0 : saved?.score || 0;
 
-  quizListScreen.classList.add("hidden");
-  quizListScreen.classList.remove("active");
-  questionScreen.classList.remove("hidden");
-  questionScreen.classList.add("active");
-
+  showScreen(questionScreen);
   loadQuestion();
 }
 
@@ -193,39 +249,50 @@ function nextQuestion() {
   loadQuestion();
 }
 
+function getStudentProgress() {
+  return JSON.parse(localStorage.getItem("lastAnswered") || "[]")
+    .filter(p => p.student === currentStudent);
+}
+
 function saveProgress() {
   if (!currentStudent) return;
+  const total = currentQuiz.questions.length;
+  const percent = parseFloat(((score / total) * 100).toFixed(1));
 
-  let lastAnswered = JSON.parse(localStorage.getItem("lastAnswered") || "[]");
-
-  const index = lastAnswered.findIndex(entry =>
-    entry.student === currentStudent &&
-    entry.level === currentQuiz.level &&
-    entry.quiz === currentQuiz.quiz
+  let progress = JSON.parse(localStorage.getItem("lastAnswered") || "[]");
+  const idx = progress.findIndex(p =>
+    p.student === currentStudent &&
+    p.level === currentQuiz.level &&
+    p.quiz === currentQuiz.quiz
   );
 
-  if (index !== -1) {
-    lastAnswered[index].question = current + 1;
+  if (idx !== -1) {
+    progress[idx].question = current + 1;
+    progress[idx].score = score;
+    progress[idx].total = total;
+    progress[idx].highestPercentage = Math.max(progress[idx].highestPercentage || 0, percent);
   } else {
-    lastAnswered.push({
+    progress.push({
       student: currentStudent,
       level: currentQuiz.level,
       quiz: currentQuiz.quiz,
-      question: current + 1
+      question: current + 1,
+      score: score,
+      total: total,
+      highestPercentage: percent
     });
   }
 
-  localStorage.setItem("lastAnswered", JSON.stringify(lastAnswered));
+  localStorage.setItem("lastAnswered", JSON.stringify(progress));
 }
 
 function showResult() {
-  questionScreen.classList.add("hidden");
-  questionScreen.classList.remove("active");
-  resultScreen.classList.remove("hidden");
-  resultScreen.classList.add("active");
+  viewStack.push(questionScreen);
+  showScreen(resultScreen);
 
   const total = currentQuiz.questions.length;
   const percent = ((score / total) * 100).toFixed(1);
+
   scoreText.innerHTML = `
     <div>Marks: <strong>${score}/${total}</strong></div>
     <div>Percentage: <strong>${percent}%</strong></div>
@@ -233,27 +300,15 @@ function showResult() {
 }
 
 function setStudentList(namesArray) {
-  if (!Array.isArray(namesArray)) {
-    console.error("❌ Please provide an array of student names.");
-    return;
-  }
+  if (!Array.isArray(namesArray)) return;
 
   const toTitleCase = str =>
-    str
-      .toLowerCase()
-      .split(" ")
-      .filter(Boolean)
-      .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(" ");
+    str.toLowerCase().split(" ").filter(Boolean)
+      .map(w => w[0].toUpperCase() + w.slice(1)).join(" ");
 
-  const cleaned = namesArray
-    .map(name => toTitleCase(name.trim()))
-    .filter(name => name); // remove empty strings
+  const cleaned = namesArray.map(n => toTitleCase(n.trim())).filter(Boolean);
+  const unique = [...new Set(cleaned)];
 
-  const uniqueNames = [...new Set(cleaned)];
-
-  localStorage.setItem("listOfStudents", JSON.stringify(uniqueNames));
-  console.log("✅ Student list saved (cleaned):", uniqueNames);
+  localStorage.setItem("listOfStudents", JSON.stringify(unique));
+  console.log("✅ Student list saved:", unique);
 }
-
-
