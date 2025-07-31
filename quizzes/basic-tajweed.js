@@ -1,7 +1,7 @@
 quizzes.push(
   {
   title: "Understanding Harakaat",
-  level: "Rules", quiz: 6,
+  level: "Basic Tajweed Rules", quiz: 6,
   questions: [
     { 
       question: "What are Harakaat in Arabic?", 
