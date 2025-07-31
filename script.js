@@ -104,7 +104,7 @@ function loadLevels() {
 
   levels.forEach(level => {
     const li = document.createElement("li");
-    li.textContent = `Level ${level}`;
+    li.textContent = typeof level === 'number' ? `Level ${level}` : `${level}`;
     li.classList.add("quiz-option");
 
     if (progress.some(p => p.level === level && p.question < p.total)) {
