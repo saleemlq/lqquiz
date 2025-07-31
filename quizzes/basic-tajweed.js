@@ -1,5 +1,3 @@
-const quizzes = [];
-
 quizzes.push(
   {
     title: "Recognizing Fathah",
