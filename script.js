@@ -27,6 +27,7 @@ const quizTitle = document.getElementById("quiz-title");
 const backButton = document.getElementById("back-button");
 
 const studentDisplay = document.getElementById("student-display");
+const backButtonAndName = document.querySelector(".button-and-name")
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
@@ -49,6 +50,7 @@ function showScreen(screen) {
   screen.classList.add("active");
 
   backButton.style.display = viewStack.length > 0 ? "inline-block" : "none";
+  backButtonAndName.style.display = viewStack.length > 0 ? "flex" : "none";
   studentDisplay.textContent = currentStudent ? `👤 ${currentStudent}` : "";
 }
 
@@ -290,10 +292,24 @@ function showResult() {
 
   const total = currentQuiz.questions.length;
   const percent = ((score / total) * 100).toFixed(1);
+const getQuoteByPercent = (percent) => {
+  if (percent >= 90) return "Outstanding work! You didn’t just pass — you inspired!";
+  if (percent >= 80) return "Excellent! Your effort and focus really shine through.";
+  if (percent >= 70) return "Great job! Your hard work is paying off.";
+  if (percent >= 60) return "Good going! Keep climbing — you're on the right path.";
+  if (percent >= 50) return "A decent step! Let’s aim even higher next time.";
+  if (percent >= 40) return "You’re growing — reflect, learn, and move forward stronger.";
+  if (percent >= 30) return "It’s not the end — it's the beginning of improvement.";
+  if (percent >= 20) return "Results don't define you — resilience does.";
+  if (percent >= 10) return "Even small steps matter. Keep trying and keep believing.";
+  return "Every result is a step forward — either a victory to celebrate or a lesson to grow from!";
+};
+const roundedPercent = Math.round(percent);
+document.getElementById('quote').innerText = getQuoteByPercent(roundedPercent);
 
   scoreText.innerHTML = `
-    <div>Marks: <strong>${score}/${total}</strong></div>
-    <div>Percentage: <strong>${percent}%</strong></div>
+    <div class="green">Marks: <strong>${score}/${total}</strong></div>
+    <div class="green">Percentage: <strong>${roundedPercent}%</strong></div>
   `;
 }
 

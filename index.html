@@ -8,8 +8,12 @@
   </head>
   <body>
     <div id="quiz-app">
-      <button id="back-button" style="display: none">← Back</button>
-      <div id="student-display"></div>
+      <div class="button-and-name">
+        <button id="back-button" class="cardy" style="display: none">
+          ← Back
+        </button>
+        <div id="student-display"></div>
+      </div>
 
       <div id="quiz-container">
         <!-- Start Screen (Level Select) -->
@@ -34,23 +38,27 @@
         <!-- Question Screen -->
         <div id="question-screen" class="screen hidden">
           <div class="quiz-header">
+            <div class="quiz-title-and-question-number">
+              <Span id="quiz-title" class="quiz-title">Quiz</Span>
             <div class="question-number">
               Question <span id="current-q">1</span> of
               <span id="total-q">10</span>
             </div>
+            </div>
             <div class="timer">⏱ <span id="timer">30</span>s</div>
           </div>
 
-          <h2 id="quiz-title" class="quiz-title">Quiz</h2>
+          <!-- <h2 id="quiz-title" class="quiz-title">Quiz</h2> -->
           <h2 id="question-text"></h2>
           <ul id="options-list"></ul>
         </div>
 
         <!-- Result Screen -->
         <div id="result-screen" class="screen hidden">
-          <h1>🎉 Quiz Completed</h1>
+          <h2>🎉 Quiz Completed</h2>
+          <h1 id="quote">Every result is a step forward — either a victory to celebrate or a lesson to grow from!</h1>
           <p id="score-text"></p>
-          <button onclick="loadLevels()">Try Another Quiz</button>
+          <button class="cardy" onclick="loadLevels()">Try Another Quiz</button>
         </div>
       </div>
     </div>
