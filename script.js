@@ -326,3 +326,89 @@ function setStudentList(namesArray) {
   localStorage.setItem("listOfStudents", JSON.stringify(unique));
   console.log("✅ Student list saved:", unique);
 }
+
+const manageBtn = document.getElementById("manage-students-btn");
+const popup = document.getElementById("student-popup");
+const closePopup = document.getElementById("close-popup");
+const studentInputsDiv = document.getElementById("student-inputs");
+
+// Open popup
+manageBtn.addEventListener("click", () => {
+  popup.classList.remove("hidden");
+  renderStudentInputs();
+});
+
+// Close popup
+closePopup.addEventListener("click", () => {
+  popup.classList.add("hidden");
+});
+
+// Render input fields
+function renderStudentInputs() {
+  studentInputsDiv.innerHTML = "";
+  const students = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
+
+  students.forEach((name, idx) => {
+    addStudentInput(name, idx);
+  });
+
+  // Always add one empty field at the end
+  addStudentInput("", students.length);
+}
+
+function addStudentInput(value = "", index) {
+  const row = document.createElement("div");
+  row.className = "student-row";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.value = value;
+  input.placeholder = "Enter student name";
+
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "❌";
+  removeBtn.className = "remove-btn";
+
+  // Remove existing student
+  removeBtn.addEventListener("click", () => {
+    const list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
+    const newList = list.filter(n => n !== value);
+    localStorage.setItem("listOfStudents", JSON.stringify(newList));
+    renderStudentInputs();
+    loadStudents(); // refresh dropdown
+  });
+
+  // Handle typing
+  input.addEventListener("input", () => {
+    let list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
+
+    // Update / add name
+    if (input.value.trim()) {
+      if (!list.includes(input.value.trim())) {
+        list[index] = input.value.trim();
+      } else {
+        list[index] = input.value.trim();
+      }
+    } else {
+      list[index] = "";
+    }
+
+    // Clean empty values
+    list = list.filter(Boolean);
+    localStorage.setItem("listOfStudents", JSON.stringify(list));
+
+    // Re-render with a new empty input
+    renderStudentInputs();
+    loadStudents();
+  });
+
+  row.appendChild(input);
+
+  if (value) {
+    row.appendChild(removeBtn);
+  }
+
+  studentInputsDiv.appendChild(row);
+}
+
+
