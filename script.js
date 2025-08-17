@@ -1,4 +1,3 @@
-
 let current = 0;
 let score = 0;
 let timer;
@@ -27,7 +26,7 @@ const quizTitle = document.getElementById("quiz-title");
 const backButton = document.getElementById("back-button");
 
 const studentDisplay = document.getElementById("student-display");
-const backButtonAndName = document.querySelector(".button-and-name")
+const backButtonAndName = document.querySelector(".button-and-name");
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
@@ -41,7 +40,7 @@ backButton.addEventListener("click", () => {
 });
 
 function showScreen(screen) {
-  [startScreen, quizListScreen, questionScreen, resultScreen].forEach(s => {
+  [startScreen, quizListScreen, questionScreen, resultScreen].forEach((s) => {
     s.classList.add("hidden");
     s.classList.remove("active");
   });
@@ -69,7 +68,7 @@ function loadStudents() {
   optionsList.innerHTML = "";
   if (!currentStudent) selected.textContent = "-- Select Student --";
 
-  list.forEach(name => {
+  list.forEach((name) => {
     const li = document.createElement("li");
     li.textContent = name;
     li.classList.add("quiz-option");
@@ -85,10 +84,12 @@ function loadStudents() {
     optionsList.appendChild(li);
   });
 
-  dropdown.querySelector(".dropdown-selected").addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropdown.classList.toggle("open");
-  });
+  dropdown
+    .querySelector(".dropdown-selected")
+    .addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("open");
+    });
 
   document.addEventListener("click", (e) => {
     if (!dropdown.contains(e.target)) {
@@ -99,15 +100,15 @@ function loadStudents() {
 
 function loadLevels() {
   levelList.innerHTML = "";
-  const levels = [...new Set(quizzes.map(q => q.level))];
+  const levels = [...new Set(quizzes.map((q) => q.level))];
   const progress = getStudentProgress();
 
-  levels.forEach(level => {
+  levels.forEach((level) => {
     const li = document.createElement("li");
-    li.textContent = typeof level === 'number' ? `Level ${level}` : `${level}`;
+    li.textContent = typeof level === "number" ? `Level ${level}` : `${level}`;
     li.classList.add("quiz-option");
 
-    if (progress.some(p => p.level === level && p.question < p.total)) {
+    if (progress.some((p) => p.level === level && p.question < p.total)) {
       const dot = document.createElement("span");
       dot.classList.add("progress-dot");
       li.appendChild(dot);
@@ -136,8 +137,8 @@ function showQuizzes(level) {
     li.textContent = quiz.title;
     li.classList.add("quiz-option");
 
-    const saved = progress.find(p =>
-      p.level === quiz.level && p.quiz === quiz.quiz
+    const saved = progress.find(
+      (p) => p.level === quiz.level && p.quiz === quiz.quiz
     );
 
     if (saved) {
@@ -170,8 +171,8 @@ function startQuiz(index) {
   currentQuizIndex = index;
   quizTitle.textContent = currentQuiz.title;
 
-  const saved = getStudentProgress().find(p =>
-    p.level === currentQuiz.level && p.quiz === currentQuiz.quiz
+  const saved = getStudentProgress().find(
+    (p) => p.level === currentQuiz.level && p.quiz === currentQuiz.quiz
   );
 
   const isCompleted = saved && saved.question >= currentQuiz.questions.length;
@@ -198,7 +199,7 @@ function loadQuestion() {
   currentQ.textContent = current + 1;
   totalQ.textContent = currentQuiz.questions.length;
 
-  q.options.forEach(opt => {
+  q.options.forEach((opt) => {
     const li = document.createElement("li");
     li.textContent = opt;
     li.addEventListener("click", () => checkAnswer(li, opt === q.answer));
@@ -233,7 +234,7 @@ function checkAnswer(elem, correct) {
 
 function showCorrect() {
   const correctText = currentQuiz.questions[current].answer;
-  Array.from(optionsList.children).forEach(li => {
+  Array.from(optionsList.children).forEach((li) => {
     if (li.textContent === correctText) {
       li.classList.add("correct");
     }
@@ -241,7 +242,9 @@ function showCorrect() {
 }
 
 function disableOptions() {
-  Array.from(optionsList.children).forEach(li => li.style.pointerEvents = "none");
+  Array.from(optionsList.children).forEach(
+    (li) => (li.style.pointerEvents = "none")
+  );
 }
 
 function nextQuestion() {
@@ -250,8 +253,9 @@ function nextQuestion() {
 }
 
 function getStudentProgress() {
-  return JSON.parse(localStorage.getItem("lastAnswered") || "[]")
-    .filter(p => p.student === currentStudent);
+  return JSON.parse(localStorage.getItem("lastAnswered") || "[]").filter(
+    (p) => p.student === currentStudent
+  );
 }
 
 function saveProgress() {
@@ -260,17 +264,21 @@ function saveProgress() {
   const percent = parseFloat(((score / total) * 100).toFixed(1));
 
   let progress = JSON.parse(localStorage.getItem("lastAnswered") || "[]");
-  const idx = progress.findIndex(p =>
-    p.student === currentStudent &&
-    p.level === currentQuiz.level &&
-    p.quiz === currentQuiz.quiz
+  const idx = progress.findIndex(
+    (p) =>
+      p.student === currentStudent &&
+      p.level === currentQuiz.level &&
+      p.quiz === currentQuiz.quiz
   );
 
   if (idx !== -1) {
     progress[idx].question = current + 1;
     progress[idx].score = score;
     progress[idx].total = total;
-    progress[idx].highestPercentage = Math.max(progress[idx].highestPercentage || 0, percent);
+    progress[idx].highestPercentage = Math.max(
+      progress[idx].highestPercentage || 0,
+      percent
+    );
   } else {
     progress.push({
       student: currentStudent,
@@ -279,7 +287,7 @@ function saveProgress() {
       question: current + 1,
       score: score,
       total: total,
-      highestPercentage: percent
+      highestPercentage: percent,
     });
   }
 
@@ -292,20 +300,27 @@ function showResult() {
 
   const total = currentQuiz.questions.length;
   const percent = ((score / total) * 100).toFixed(1);
-const getQuoteByPercent = (percent) => {
-  if (percent >= 90) return "Outstanding work! You didn’t just pass — you inspired!";
-  if (percent >= 80) return "Excellent! Your effort and focus really shine through.";
-  if (percent >= 70) return "Great job! Your hard work is paying off.";
-  if (percent >= 60) return "Good going! Keep climbing — you're on the right path.";
-  if (percent >= 50) return "A decent step! Let’s aim even higher next time.";
-  if (percent >= 40) return "You’re growing — reflect, learn, and move forward stronger.";
-  if (percent >= 30) return "It’s not the end — it's the beginning of improvement.";
-  if (percent >= 20) return "Results don't define you — resilience does.";
-  if (percent >= 10) return "Even small steps matter. Keep trying and keep believing.";
-  return "Every result is a step forward — either a victory to celebrate or a lesson to grow from!";
-};
-const roundedPercent = Math.round(percent);
-document.getElementById('quote').innerText = getQuoteByPercent(roundedPercent);
+  const getQuoteByPercent = (percent) => {
+    if (percent >= 90)
+      return "Outstanding work! You didn’t just pass — you inspired!";
+    if (percent >= 80)
+      return "Excellent! Your effort and focus really shine through.";
+    if (percent >= 70) return "Great job! Your hard work is paying off.";
+    if (percent >= 60)
+      return "Good going! Keep climbing — you're on the right path.";
+    if (percent >= 50) return "A decent step! Let’s aim even higher next time.";
+    if (percent >= 40)
+      return "You’re growing — reflect, learn, and move forward stronger.";
+    if (percent >= 30)
+      return "It’s not the end — it's the beginning of improvement.";
+    if (percent >= 20) return "Results don't define you — resilience does.";
+    if (percent >= 10)
+      return "Even small steps matter. Keep trying and keep believing.";
+    return "Every result is a step forward — either a victory to celebrate or a lesson to grow from!";
+  };
+  const roundedPercent = Math.round(percent);
+  document.getElementById("quote").innerText =
+    getQuoteByPercent(roundedPercent);
 
   scoreText.innerHTML = `
     <div class="green">Marks: <strong>${score}/${total}</strong></div>
@@ -316,11 +331,15 @@ document.getElementById('quote').innerText = getQuoteByPercent(roundedPercent);
 function setStudentList(namesArray) {
   if (!Array.isArray(namesArray)) return;
 
-  const toTitleCase = str =>
-    str.toLowerCase().split(" ").filter(Boolean)
-      .map(w => w[0].toUpperCase() + w.slice(1)).join(" ");
+  const toTitleCase = (str) =>
+    str
+      .toLowerCase()
+      .split(" ")
+      .filter(Boolean)
+      .map((w) => w[0].toUpperCase() + w.slice(1))
+      .join(" ");
 
-  const cleaned = namesArray.map(n => toTitleCase(n.trim())).filter(Boolean);
+  const cleaned = namesArray.map((n) => toTitleCase(n.trim())).filter(Boolean);
   const unique = [...new Set(cleaned)];
 
   localStorage.setItem("listOfStudents", JSON.stringify(unique));
@@ -341,6 +360,7 @@ manageBtn.addEventListener("click", () => {
 // Close popup
 closePopup.addEventListener("click", () => {
   popup.classList.add("hidden");
+  location.reload();
 });
 
 // Render input fields
@@ -368,7 +388,21 @@ function renderStudentInputs(focusIndex = null, cursorPos = null) {
   addStudentInput("", students.length, focusIndex, cursorPos);
 }
 
-function addStudentInput(value = "", index, focusIndex = null, cursorPos = null) {
+function capitalizeWords(str) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .filter(Boolean) // remove accidental double spaces
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function addStudentInput(
+  value = "",
+  index,
+  focusIndex = null,
+  cursorPos = null
+) {
   const row = document.createElement("div");
   row.className = "student-row";
 
@@ -391,36 +425,60 @@ function addStudentInput(value = "", index, focusIndex = null, cursorPos = null)
     }, 0);
   }
 
-  // Remove existing student
+  // Remove student
   removeBtn.addEventListener("click", () => {
     let list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
     list.splice(index, 1);
     localStorage.setItem("listOfStudents", JSON.stringify(list));
-    renderStudentInputs(); 
+    renderStudentInputs();
     loadStudents();
   });
 
   // Handle typing
   input.addEventListener("input", () => {
     let list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
-    const newName = input.value.trim();
+    let rawValue = input.value;
 
-    const duplicate = list.some((n, i) => 
-      i !== index && n.toLowerCase() === newName.toLowerCase()
+    // Don’t save if empty
+    if (!rawValue.trim()) {
+      list[index] = "";
+      localStorage.setItem("listOfStudents", JSON.stringify(list));
+      loadStudents();
+      return;
+    }
+
+    // If last character is a space, don’t save yet
+    if (rawValue.endsWith(" ")) {
+      return;
+    }
+
+    // Format & save
+    const formattedName = capitalizeWords(rawValue.trim());
+
+    // Duplicate check (ignore case)
+    const duplicate = list.some(
+      (n, i) => i !== index && n.toLowerCase() === formattedName.toLowerCase()
     );
 
     if (duplicate) {
       input.style.border = "2px solid red";
       return;
     }
-
     input.style.border = "";
-    list[index] = newName;
+
+    list[index] = formattedName;
+
+    // Remove empty slots
     list = list.filter((n, i) => n || i < list.length - 1);
+
+    // Ensure unique list
+    list = [...new Set(list.map((n) => n.toLowerCase()))].map((n) =>
+      capitalizeWords(n)
+    );
+
     localStorage.setItem("listOfStudents", JSON.stringify(list));
 
-    if (index === list.length - 1 && newName) {
-      // ✅ Save current focus info before re-render
+    if (index === list.length - 1 && formattedName) {
       renderStudentInputs(index, input.selectionStart);
     }
 
