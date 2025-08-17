@@ -22,15 +22,24 @@
         <!-- Start Screen (Level Select) -->
         <div id="start-screen" class="screen active">
           <div class="top-bar">
-            <label for="student-select">👤 </label>
+            <label for="student-select" id="manage-students-btn">👤 </label>
             <div class="custom-dropdown" id="student-dropdown">
-              <div class="dropdown-selected">-- Select the Student --</div>
+              <div class="dropdown-selected">-- Select Student --</div>
               <ul class="dropdown-options"></ul>
             </div>
           </div>
           <h1>✨ Select a Level</h1>
           <ul id="level-list"></ul>
         </div>
+
+<!-- Popup Modal -->
+<div id="student-popup" class="popup hidden">
+  <div class="popup-content">
+    <h2>Manage Students</h2>
+    <div id="student-inputs"></div>
+    <button id="close-popup">Close</button>
+  </div>
+</div>
 
         <!-- Quiz List Screen -->
         <div id="quiz-list-screen" class="screen hidden">
@@ -64,27 +73,16 @@
           </h1>
           <p id="score-text"></p>
           <button class="cardy" onclick="loadLevels()">Try Another Quiz</button>
-          <button class="cardy" onclick="goHome()">🏠 Home</button>
         </div>
       </div>
     </div>
 
+    <!-- Scripts -->
     <script src="quizzes.js"></script>
     <script src="quizzes/islamic-level1.js"></script>
     <script src="quizzes/islamic-level2.js"></script>
     <script src="quizzes/islamic-level3.js"></script>
     <script src="quizzes/basic-tajweed.js"></script>
     <script src="script.js"></script>
-    <script>
-      function goHome() {
-        // hide all screens
-        document
-          .querySelectorAll(".screen")
-          .forEach((s) => s.classList.add("hidden"));
-        // show start screen
-        document.getElementById("start-screen").classList.remove("hidden");
-      }
-    </script>
   </body>
 </html>
-
