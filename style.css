@@ -546,3 +546,14 @@ h1 {
   border-color: #00ffc8;
   color: #00ffc8;
 }
+
+#manage-students-btn {
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+#manage-students-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
