@@ -356,49 +356,74 @@ function renderStudentInputs() {
   addStudentInput("", students.length);
 }
 
-function addStudentInput(value = "", index) {
+function renderStudentInputs(focusIndex = null, cursorPos = null) {
+  studentInputsDiv.innerHTML = "";
+  const students = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
+
+  students.forEach((name, idx) => {
+    addStudentInput(name, idx, focusIndex, cursorPos);
+  });
+
+  // Always add one empty field at the end
+  addStudentInput("", students.length, focusIndex, cursorPos);
+}
+
+function addStudentInput(value = "", index, focusIndex = null, cursorPos = null) {
   const row = document.createElement("div");
   row.className = "student-row";
 
   const input = document.createElement("input");
   input.type = "text";
   input.value = value;
-  input.placeholder = "Enter student name";
+  input.placeholder = "Enter full name";
 
   const removeBtn = document.createElement("button");
   removeBtn.textContent = "❌";
   removeBtn.className = "remove-btn";
 
+  // Restore focus if this was the active input
+  if (focusIndex === index) {
+    setTimeout(() => {
+      input.focus();
+      if (cursorPos !== null) {
+        input.setSelectionRange(cursorPos, cursorPos);
+      }
+    }, 0);
+  }
+
   // Remove existing student
   removeBtn.addEventListener("click", () => {
-    const list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
-    const newList = list.filter(n => n !== value);
-    localStorage.setItem("listOfStudents", JSON.stringify(newList));
-    renderStudentInputs();
-    loadStudents(); // refresh dropdown
+    let list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
+    list.splice(index, 1);
+    localStorage.setItem("listOfStudents", JSON.stringify(list));
+    renderStudentInputs(); 
+    loadStudents();
   });
 
   // Handle typing
   input.addEventListener("input", () => {
     let list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
+    const newName = input.value.trim();
 
-    // Update / add name
-    if (input.value.trim()) {
-      if (!list.includes(input.value.trim())) {
-        list[index] = input.value.trim();
-      } else {
-        list[index] = input.value.trim();
-      }
-    } else {
-      list[index] = "";
+    const duplicate = list.some((n, i) => 
+      i !== index && n.toLowerCase() === newName.toLowerCase()
+    );
+
+    if (duplicate) {
+      input.style.border = "2px solid red";
+      return;
     }
 
-    // Clean empty values
-    list = list.filter(Boolean);
+    input.style.border = "";
+    list[index] = newName;
+    list = list.filter((n, i) => n || i < list.length - 1);
     localStorage.setItem("listOfStudents", JSON.stringify(list));
 
-    // Re-render with a new empty input
-    renderStudentInputs();
+    if (index === list.length - 1 && newName) {
+      // ✅ Save current focus info before re-render
+      renderStudentInputs(index, input.selectionStart);
+    }
+
     loadStudents();
   });
 
@@ -410,5 +435,3 @@ function addStudentInput(value = "", index) {
 
   studentInputsDiv.appendChild(row);
 }
-
-
