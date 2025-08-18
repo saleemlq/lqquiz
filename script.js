@@ -409,7 +409,7 @@ function addStudentInput(
   const input = document.createElement("input");
   input.type = "text";
   input.value = value;
-  input.placeholder = "Enter full name";
+  input.placeholder = "Add another student";
 
   const removeBtn = document.createElement("button");
   removeBtn.textContent = "❌";
@@ -493,3 +493,4 @@ function addStudentInput(
 
   studentInputsDiv.appendChild(row);
 }
+
