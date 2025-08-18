@@ -4,17 +4,18 @@ quizzes.push(
     level: 1,
     quiz: 1,
     questions: [
-      { question: "Who is the last Prophet of Allah?", options: ["Isa", "Muhammad", "Musa", "Yusuf"], answer: "Muhammad" },
-      { question: "What is the last holy book called?", options: ["Bible", "Quran", "Torah", "Vedas"], answer: "Quran" },
-      { question: "What do Muslims say before eating?", options: ["Bismillah", "Alhamdulillah", "SubhanAllah", "InshaAllah"], answer: "Bismillah" },
-      { question: "Which direction do we pray to?", options: ["Jerusalem", "Kaaba", "Madinah", "Aqsa"], answer: "Kaaba" },
-      { question: "How many times a day do Muslims pray?", options: ["3", "4", "5", "6"], answer: "5" },
-      { question: "What is the name of the Islamic fasting month?", options: ["Muharram", "Ramadan", "Shawwal", "Dhul-Hijjah"], answer: "Ramadan" },
-      { question: "What do Muslims say after sneezing?", options: ["MashaAllah", "Alhamdulillah", "SubhanAllah", "Bismillah"], answer: "Alhamdulillah" },
-      { question: "What is the meaning of 'Islam'?", options: ["Faith", "Peace", "Love", "Victory"], answer: "Peace" },
-      { question: "Which animal swallowed Prophet Yunus?", options: ["Camel", "Lion", "Whale", "Snake"], answer: "Whale" },
-      { question: "What is the name of God’s last messenger?", options: ["Prophet Musa", "Prophet Adam", "Prophet Muhammad", "Prophet Isa"], answer: "Prophet Muhammad" }
-    ]
+  { question: "Who is the last Prophet of Allah?", options: ["Isa", "Muhammad", "Musa", "Yusuf"], answer: "Muhammad" },
+  { question: "What is the last holy book called?", options: ["Bible", "Quran", "Torah", "Vedas"], answer: "Quran" },
+  { question: "What do Muslims say before eating?", options: ["Bismillah", "Alhamdulillah", "SubhanAllah", "InshaAllah"], answer: "Bismillah" },
+  { question: "Which direction do we pray to?", options: ["Jerusalem", "Kaaba", "Madinah", "Aqsa"], answer: "Kaaba" },
+  { question: "How many times a day do Muslims pray?", options: ["3", "4", "5", "6"], answer: "5" },
+  { question: "What is the name of the Islamic fasting month?", options: ["Muharram", "Ramadan", "Shawwal", "Dhul-Hijjah"], answer: "Ramadan" },
+  { question: "What do Muslims say after sneezing?", options: ["MashaAllah", "Alhamdulillah", "SubhanAllah", "Bismillah"], answer: "Alhamdulillah" },
+  { question: "What is the meaning of 'Islam'?", options: ["Faith", "Peace", "Love", "Victory"], answer: "Peace" },
+  { question: "Which animal swallowed Prophet Yunus?", options: ["Camel", "Lion", "Whale", "Snake"], answer: "Whale" },
+  { question: "Where is Prophet Muhammad (PBUH) buried?", options: ["Mecca", "Madinah", "Jerusalem", "Baghdad"], answer: "Madinah" }
+]
+
   },
   {
     title: "Islamic Greetings & Manners",
