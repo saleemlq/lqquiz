@@ -4,9 +4,9 @@ quizzes.push(
     level: 1,
     quiz: 1,
     questions: [
-  { question: "Who is the last Prophet of Allah?", options: ["Isa", "Muhammad", "Musa", "Yusuf"], answer: "Muhammad" },
+  { question: "Who is the last Prophet of Allah?", options: ["Isa AS", "Muhammad PBUH", "Musa AS", "Yusuf AS"], answer: "Muhammad" },
   { question: "What is the last holy book called?", options: ["Bible", "Quran", "Torah", "Vedas"], answer: "Quran" },
-  { question: "What do Muslims say before eating?", options: ["Bismillah", "Alhamdulillah", "SubhanAllah", "InshaAllah"], answer: "Bismillah" },
+  { question: "What do Muslims say before doing anything?", options: ["Bismillah", "Alhamdulillah", "SubhanAllah", "InshaAllah"], answer: "Bismillah" },
   { question: "Which direction do we pray to?", options: ["Jerusalem", "Kaaba", "Madinah", "Aqsa"], answer: "Kaaba" },
   { question: "How many times a day do Muslims pray?", options: ["3", "4", "5", "6"], answer: "5" },
   { question: "What is the name of the Islamic fasting month?", options: ["Muharram", "Ramadan", "Shawwal", "Dhul-Hijjah"], answer: "Ramadan" },
