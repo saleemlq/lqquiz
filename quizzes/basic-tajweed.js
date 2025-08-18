@@ -5,7 +5,7 @@ quizzes.push(
     questions: [
       { question: "What sound does Fathah make?", options: ["a", "i", "u", "e"], answer: "a" },
       { question: "Where is Fathah placed?", options: ["Below the letter", "Above the letter", "Next to the letter", "After the letter"], answer: "Above the letter" },
-      { question: "Which word shows Fathah?", options: ["كَتَبَ", "كُتِبَ", "كِتَاب", "كْتَبَ"], answer: "كَتَبَ" },
+      { question: "Which word has all Fathahs?", options: ["كَتَبَ", "كُتِبَ", "كِتَاب", "كْتَبَ"], answer: "كَتَبَ" },
       { question: "Fathah gives a sound like:", options: ["in 'bit'", "in 'apple'", "in 'boot'", "in 'net'"], answer: "in 'apple'" },
       { question: "How many Fathahs are in: فَتَحَ", options: ["1", "2", "3", "0"], answer: "3" },
       { question: "Which symbol is the Fathah?", options: ["ـَ", "ـُ", "ـِ", "ـّ"], answer: "ـَ" },
