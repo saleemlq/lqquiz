@@ -4,7 +4,7 @@ quizzes.push(
     level: 1,
     quiz: 1,
     questions: [
-  { question: "Who is the last Prophet of Allah?", options: ["Isa AS", "Muhammad PBUH", "Musa AS", "Yusuf AS"], answer: "Muhammad" },
+  { question: "Who is the last Prophet of Allah?", options: ["Isa AS", "Muhammad PBUH", "Musa AS", "Yusuf AS"], answer: "Muhammad PBUH" },
   { question: "What is the last holy book called?", options: ["Bible", "Quran", "Torah", "Vedas"], answer: "Quran" },
   { question: "What do Muslims say before doing anything?", options: ["Bismillah", "Alhamdulillah", "SubhanAllah", "InshaAllah"], answer: "Bismillah" },
   { question: "Which direction do we pray to?", options: ["Jerusalem", "Kaaba", "Madinah", "Aqsa"], answer: "Kaaba" },
