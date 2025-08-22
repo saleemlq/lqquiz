@@ -21,17 +21,18 @@ quizzes.push(
     title: "Islamic Greetings & Manners",
     level: 1, quiz: 2,
     questions: [
-      { question: "What do you say when greeting?", options: ["Hello", "Salam", "Hi", "Yo"], answer: "Salam" },
-      { question: "How do you respond to salam?", options: ["Wa‑alaikum as‑salaam", "Hello", "Hi", "Peace"], answer: "Wa‑alaikum as‑salaam" },
-      { question: "What should we say before sleeping?", options: ["SubhanAllah", "Bismillah", "Allah Akbar", "Alhamdulillah"], answer: "Bismillah" },
-      { question: "What do you say when waking up?", options: ["Alhamdulillah", "Bismillah", "SubhanAllah", "InshaAllah"], answer: "Alhamdulillah" },
-      { question: "What do you say when hearing good news?", options: ["MashaAllah", "SubhanAllah", "Bismillah", "Alhamdulillah"], answer: "MashaAllah" },
-      { question: "Say this when entering the bathroom?", options: ["InshaAllah", "Assalamu alaikum", "Bismillah", "SubhanAllah"], answer: "Bismillah" },
-      { question: "Say this when intending to do something in future?", options: ["SubhanAllah", "InshaAllah", "Bismillah", "Alhamdulillah"], answer: "InshaAllah" },
-      { question: "Say this before wearing new clothes?", options: ["MashaAllah", "Bismillah", "SubhanAllah", "Alhamdulillah"], answer: "Bismillah" },
-      { question: "Say this when someone gives you a gift?", options: ["JazakAllah", "Alhamdulillah", "SubhanAllah", "Bismillah"], answer: "JazakAllah" },
-      { question: "Say this when you sneeze?", options: ["MashaAllah", "Alhamdulillah", "SubhanAllah", "Bismillah"], answer: "Alhamdulillah" }
-    ]
+  { question: "What do you say when greeting?", options: ["Hello", "Salam", "Hi", "Yo"], answer: "Salam" },
+  { question: "How do you respond to Salam?", options: ["Wa-alaikum as-salaam", "Hello", "Hi", "Peace"], answer: "Wa-alaikum as-salaam" },
+  { question: "What do you say before eating?", options: ["Bismillah", "Alhamdulillah", "InshaAllah", "SubhanAllah"], answer: "Bismillah" },
+  { question: "What do you say after eating?", options: ["Alhamdulillah", "Bismillah", "MashaAllah", "SubhanAllah"], answer: "Alhamdulillah" },
+  { question: "What do you say when you sneeze?", options: ["Alhamdulillah", "SubhanAllah", "Bismillah", "Astaghfirullah"], answer: "Alhamdulillah" },
+  { question: "What do you reply when someone sneezes?", options: ["YarhamukAllah", "Wa-alaikum as-salaam", "MashaAllah", "InshaAllah"], answer: "YarhamukAllah" },
+  { question: "What do you say when you forget something?", options: ["SubhanAllah", "Astaghfirullah", "InshaAllah", "MashaAllah"], answer: "SubhanAllah" },
+  { question: "What do you say when you see something beautiful?", options: ["MashaAllah", "SubhanAllah", "Alhamdulillah", "Bismillah"], answer: "MashaAllah" },
+  { question: "What do you say when you make a mistake?", options: ["Astaghfirullah", "SubhanAllah", "Alhamdulillah", "InshaAllah"], answer: "Astaghfirullah" },
+  { question: "What do you say when starting a journey?", options: ["Bismillah, Tawakkaltu 'ala Allah", "Alhamdulillah", "MashaAllah", "InshaAllah"], answer: "Bismillah, Tawakkaltu 'ala Allah" }
+]
+
   },
   {
     title: "Prophets & Stories",
