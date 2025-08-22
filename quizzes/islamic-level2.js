@@ -11,7 +11,7 @@ quizzes.push(
       { question: "Which Prophet is associated with the Kaaba building?", options: ["Adam", "Ibrahim", "Muhammad", "Nuh"], answer: "Ibrahim" },
       { question: "Prophet Musa received which commandment?", options: ["Ten", "Seven", "Four", "Twelve"], answer: "Ten" },
       { question: "Who was Prophet Yusuf (Joseph)’s father?", options: ["Jacob", "Isaac", "Ibrahim", "Musa"], answer: "Jacob" },
-      { question: "Which Prophet spoke only truth even as child?", options: ["Isa", "Nuh", "Adam", "Hud"], answer: "Isa" },
+      { question: "Which Prophet spoke in the lap of his mother as a baby?", options: ["Isa", "Nuh", "Adam", "Hud"], answer: "Isa" },
       { question: "Which tribe helped rebuild Kaaba before Islam?", options: ["Quraysh", "Aws", "Thaqif", "Harith"], answer: "Quraysh" }
     ]
   },
