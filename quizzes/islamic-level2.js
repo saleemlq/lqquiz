@@ -38,7 +38,7 @@ quizzes.push(
       { question: "Who built the Kaaba with his son Ismail?", options: ["Ibrahim", "Muhammad", "Adam", "Nuh"], answer: "Ibrahim" },
       { question: "Which Prophet guided the Queen of Sheba?", options: ["Suleiman", "Musa", "Yusuf", "Isa"], answer: "Suleiman" },
       { question: "Prophet Ibrahim’s test involved which child?", options: ["Isa", "Yusuf", "Ismail", "Musa"], answer: "Ismail" },
-      { question: "Who turned into a spider in the cave?", options: ["Prophet Muhammad’s camel", "Prophet Muhammad", "Prophet Isa", "Prophet Musa"], answer: "Prophet Muhammad" },
+      { question: "What did Allah send to protect Prophet Muhammad ﷺ and Abu Bakr (RA) in the cave during Hijrah?", options: ["A lion", "A spider", "An angel with a sword", "A strong wind"], answer: "A spider" },
       { question: "Which Prophet slept in a whale’s belly?", options: ["Isa", "Yusuf", "Musa", "Yunus"], answer: "Yunus" },
       { question: "Which surah is often recited before sleep?", options: ["Ikhlas", "Fatiha", "Kahf", "Ya‑Sin"], answer: "Kahf" },
       { question: "Who was thrown in the fire and saved?", options: ["Sad", "Ashab‑e Kehf", "Prophet Ibrahim", "Prophet Musa"], answer: "Prophet Ibrahim" },
