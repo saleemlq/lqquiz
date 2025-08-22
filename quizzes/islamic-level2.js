@@ -41,7 +41,7 @@ quizzes.push(
       { question: "Who turned into a spider in the cave?", options: ["Prophet Muhammad’s camel", "Prophet Muhammad", "Prophet Isa", "Prophet Musa"], answer: "Prophet Muhammad" },
       { question: "Which Prophet slept in a whale’s belly?", options: ["Isa", "Yusuf", "Musa", "Yunus"], answer: "Yunus" },
       { question: "Which surah is often recited before sleep?", options: ["Ikhlas", "Fatiha", "Kahf", "Ya‑Sin"], answer: "Kahf" },
-      { question: "Who was thrown in the fire and saved?", options: ["Sad", "Ashab‑e Kehf", "Prophet Ibrahim", "Prophet Musa"], answer: "Sad (Companions of Cave)" },
+      { question: "Who was thrown in the fire and saved?", options: ["Sad", "Ashab‑e Kehf", "Prophet Ibrahim", "Prophet Musa"], answer: "Prophet Ibrahim" },
       { question: "Which Prophet had a staff that spoke?", options: ["Musa", "Isa", "Ibrahim", "Nuh"], answer: "Musa" },
       { question: "Queen of Sheba ruled which land?", options: ["Egypt", "Sheba", "Rome", "Persia"], answer: "Sheba" },
       { question: "Where did Prophet Musa receive the Torah?", options: ["Mount Sinai", "Mount Hira", "Mount Ararat", "Mount Uhud"], answer: "Mount Sinai" }
