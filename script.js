@@ -183,6 +183,14 @@ function startQuiz(index) {
   loadQuestion();
 }
 
+// helper: shuffle array
+function shuffleArray(array) {
+  return array
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+}
+
 function loadQuestion() {
   if (current >= currentQuiz.questions.length) {
     showResult();
@@ -199,7 +207,10 @@ function loadQuestion() {
   currentQ.textContent = current + 1;
   totalQ.textContent = currentQuiz.questions.length;
 
-  q.options.forEach((opt) => {
+  // shuffle options
+  const shuffledOptions = shuffleArray([...q.options]);
+
+  shuffledOptions.forEach((opt) => {
     const li = document.createElement("li");
     li.textContent = opt;
     li.addEventListener("click", () => checkAnswer(li, opt === q.answer));
@@ -300,27 +311,96 @@ function showResult() {
 
   const total = currentQuiz.questions.length;
   const percent = ((score / total) * 100).toFixed(1);
-  const getQuoteByPercent = (percent) => {
-    if (percent >= 90)
-      return "Outstanding work! You didn’t just pass — you inspired!";
-    if (percent >= 80)
-      return "Excellent! Your effort and focus really shine through.";
-    if (percent >= 70) return "Great job! Your hard work is paying off.";
-    if (percent >= 60)
-      return "Good going! Keep climbing — you're on the right path.";
-    if (percent >= 50) return "A decent step! Let’s aim even higher next time.";
-    if (percent >= 40)
-      return "You’re growing — reflect, learn, and move forward stronger.";
-    if (percent >= 30)
-      return "It’s not the end — it's the beginning of improvement.";
-    if (percent >= 20) return "Results don't define you — resilience does.";
-    if (percent >= 10)
-      return "Even small steps matter. Keep trying and keep believing.";
-    return "Every result is a step forward — either a victory to celebrate or a lesson to grow from!";
-  };
   const roundedPercent = Math.round(percent);
-  document.getElementById("quote").innerText =
-    getQuoteByPercent(roundedPercent);
+
+  // Multiple quotes per range
+  const quotes = {
+    90: [
+      "Outstanding work! You didn’t just pass — you inspired!",
+      "Excellent! Your answers show mastery.",
+      "You’ve set the bar high — keep it up!",
+      "Superb! You’re a role model for learning.",
+      "Fantastic performance — excellence achieved!"
+    ],
+    80: [
+      "Great job! You’re nearly perfect.",
+      "Excellent effort — very well done!",
+      "Strong results — keep pushing forward.",
+      "Impressive work, just a step from mastery!",
+      "Amazing consistency — bravo!"
+    ],
+    70: [
+      "Well done! Solid achievement.",
+      "Good progress — keep building.",
+      "You’re moving in the right direction!",
+      "Your dedication is showing results.",
+      "Strong performance — keep going!"
+    ],
+    60: [
+      "Not bad! You’re improving steadily.",
+      "Good effort — more practice will perfect it.",
+      "Solid work, you’re on the right track.",
+      "Encouraging result — keep studying!",
+      "Nice progress — consistency is key!"
+    ],
+    50: [
+      "A fair attempt — keep learning!",
+      "Decent progress — next time will be better.",
+      "Halfway there — keep practicing!",
+      "Effort shows — now aim higher!",
+      "You’re building a strong foundation."
+    ],
+    40: [
+      "A learning step — reflect and grow.",
+      "Don’t stop here — progress is coming.",
+      "Every mistake is a step forward.",
+      "Keep trying — success is built this way.",
+      "Encouraging start — more effort, more reward."
+    ],
+    30: [
+      "Small progress — but it counts!",
+      "Not the end — keep striving!",
+      "Stay motivated, results will improve.",
+      "This is a lesson, not a failure.",
+      "Perseverance will pay off."
+    ],
+    20: [
+      "Resilience matters more than scores.",
+      "Don’t lose heart — keep pushing.",
+      "Failure is just delayed success.",
+      "Try again — you’re capable of more!",
+      "Keep practicing — the path is long but worth it."
+    ],
+    10: [
+      "Even small steps matter.",
+      "Don’t give up — the start is always hardest.",
+      "Courage is in trying again.",
+      "You’ve started the journey — continue it!",
+      "The effort counts — keep going!"
+    ],
+    0: [
+      "Every result is a step forward.",
+      "Don’t worry — mistakes are teachers.",
+      "Fall down 7 times, stand up 8.",
+      "Failure is the seed of success.",
+      "This is not the end — it’s the beginning!"
+    ]
+  };
+
+  function getRandomQuote(percent) {
+    if (percent >= 90) return quotes[90][Math.floor(Math.random() * 5)];
+    if (percent >= 80) return quotes[80][Math.floor(Math.random() * 5)];
+    if (percent >= 70) return quotes[70][Math.floor(Math.random() * 5)];
+    if (percent >= 60) return quotes[60][Math.floor(Math.random() * 5)];
+    if (percent >= 50) return quotes[50][Math.floor(Math.random() * 5)];
+    if (percent >= 40) return quotes[40][Math.floor(Math.random() * 5)];
+    if (percent >= 30) return quotes[30][Math.floor(Math.random() * 5)];
+    if (percent >= 20) return quotes[20][Math.floor(Math.random() * 5)];
+    if (percent >= 10) return quotes[10][Math.floor(Math.random() * 5)];
+    return quotes[0][Math.floor(Math.random() * 5)];
+  }
+
+  document.getElementById("quote").innerText = getRandomQuote(roundedPercent);
 
   scoreText.innerHTML = `
     <div class="green">Marks: <strong>${score}/${total}</strong></div>
@@ -364,18 +444,6 @@ closePopup.addEventListener("click", () => {
 });
 
 // Render input fields
-function renderStudentInputs() {
-  studentInputsDiv.innerHTML = "";
-  const students = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
-
-  students.forEach((name, idx) => {
-    addStudentInput(name, idx);
-  });
-
-  // Always add one empty field at the end
-  addStudentInput("", students.length);
-}
-
 function renderStudentInputs(focusIndex = null, cursorPos = null) {
   studentInputsDiv.innerHTML = "";
   const students = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
@@ -384,7 +452,6 @@ function renderStudentInputs(focusIndex = null, cursorPos = null) {
     addStudentInput(name, idx, focusIndex, cursorPos);
   });
 
-  // Always add one empty field at the end
   addStudentInput("", students.length, focusIndex, cursorPos);
 }
 
@@ -392,7 +459,7 @@ function capitalizeWords(str) {
   return str
     .toLowerCase()
     .split(" ")
-    .filter(Boolean) // remove accidental double spaces
+    .filter(Boolean)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 }
@@ -415,7 +482,6 @@ function addStudentInput(
   removeBtn.textContent = "❌";
   removeBtn.className = "remove-btn";
 
-  // Restore focus if this was the active input
   if (focusIndex === index) {
     setTimeout(() => {
       input.focus();
@@ -425,7 +491,6 @@ function addStudentInput(
     }, 0);
   }
 
-  // Remove student
   removeBtn.addEventListener("click", () => {
     let list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
     list.splice(index, 1);
@@ -434,12 +499,10 @@ function addStudentInput(
     loadStudents();
   });
 
-  // Handle typing
   input.addEventListener("input", () => {
     let list = JSON.parse(localStorage.getItem("listOfStudents") || "[]");
     let rawValue = input.value;
 
-    // Don’t save if empty
     if (!rawValue.trim()) {
       list[index] = "";
       localStorage.setItem("listOfStudents", JSON.stringify(list));
@@ -447,15 +510,12 @@ function addStudentInput(
       return;
     }
 
-    // If last character is a space, don’t save yet
     if (rawValue.endsWith(" ")) {
       return;
     }
 
-    // Format & save
     const formattedName = capitalizeWords(rawValue.trim());
 
-    // Duplicate check (ignore case)
     const duplicate = list.some(
       (n, i) => i !== index && n.toLowerCase() === formattedName.toLowerCase()
     );
@@ -467,11 +527,7 @@ function addStudentInput(
     input.style.border = "";
 
     list[index] = formattedName;
-
-    // Remove empty slots
     list = list.filter((n, i) => n || i < list.length - 1);
-
-    // Ensure unique list
     list = [...new Set(list.map((n) => n.toLowerCase()))].map((n) =>
       capitalizeWords(n)
     );
@@ -493,4 +549,3 @@ function addStudentInput(
 
   studentInputsDiv.appendChild(row);
 }
-
