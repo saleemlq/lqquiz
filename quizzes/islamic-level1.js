@@ -43,7 +43,7 @@ quizzes.push(
       { question: "Who was swallowed by a whale?", options: ["Prophet Isa", "Prophet Yunus", "Prophet Adam", "Prophet Ibrahim"], answer: "Prophet Yunus" },
       { question: "Which Prophet could talk to animals?", options: ["Prophet Suleiman", "Prophet Nuh", "Prophet Musa", "Prophet Isa"], answer: "Prophet Suleiman" },
       { question: "Who was the first Prophet?", options: ["Prophet Adam", "Prophet Nuh", "Prophet Musa", "Prophet Isa"], answer: "Prophet Adam" },
-      { question: "Who built the Kaaba first?", options: ["Prophet Ibrahim", "Prophet Muhammad", "Prophet Musa", "Prophet Adam"], answer: "Prophet Ibrahim" },
+      { question: "Who built the Kaaba first?", options: ["Prophet Ibrahim", "Prophet Muhammad", "Prophet Musa", "Prophet Adam"], answer: "Prophet Adam" },
       { question: "Where was Prophet Muhammad PBUH born?", options: ["Medina", "Makkah", "Jerusalem", "Baghdad"], answer: "Makkah" },
       { question: "What is the night Qur’an was revealed?", options: ["Laylat al-Qadr", "Laylat al-Isra", "Laylat al-Bara’ah", "Laylat al-Miraj"], answer: "Laylat al-Qadr" },
       { question: "How many Surahs in the Qur’an?", options: ["110", "114", "100", "99"], answer: "114" },
