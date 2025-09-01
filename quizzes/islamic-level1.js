@@ -27,11 +27,12 @@ quizzes.push(
   { question: "What do you say after eating?", options: ["Alhamdulillah", "Bismillah", "MashaAllah", "SubhanAllah"], answer: "Alhamdulillah" },
   { question: "What do you say when you sneeze?", options: ["Alhamdulillah", "SubhanAllah", "Bismillah", "Astaghfirullah"], answer: "Alhamdulillah" },
   { question: "What do you reply when someone sneezes?", options: ["YarhamukAllah", "Wa-alaikum as-salaam", "MashaAllah", "InshaAllah"], answer: "YarhamukAllah" },
-  { question: "What do you say when you forget something?", options: ["SubhanAllah", "Astaghfirullah", "InshaAllah", "MashaAllah"], answer: "SubhanAllah" },
+  { question: "What do you say when you wake up?", options: ["Alhamdulillah alladhi ahyana", "Bismillah", "SubhanAllah", "Astaghfirullah"], answer: "Alhamdulillah alladhi ahyana" },
   { question: "What do you say when you see something beautiful?", options: ["MashaAllah", "SubhanAllah", "Alhamdulillah", "Bismillah"], answer: "MashaAllah" },
   { question: "What do you say when you make a mistake?", options: ["Astaghfirullah", "SubhanAllah", "Alhamdulillah", "InshaAllah"], answer: "Astaghfirullah" },
   { question: "What do you say when starting a journey?", options: ["Bismillah, Tawakkaltu 'ala Allah", "Alhamdulillah", "MashaAllah", "InshaAllah"], answer: "Bismillah, Tawakkaltu 'ala Allah" }
 ]
+
 
   },
   {
