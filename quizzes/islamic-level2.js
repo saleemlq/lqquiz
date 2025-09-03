@@ -40,7 +40,7 @@ quizzes.push(
       { question: "Prophet Ibrahim’s test involved which child?", options: ["Isa", "Yusuf", "Ismail", "Musa"], answer: "Ismail" },
       { question: "What did Allah send to protect Prophet Muhammad ﷺ and Abu Bakr (RA) in the cave during Hijrah?", options: ["A lion", "A spider", "An angel with a sword", "A strong wind"], answer: "A spider" },
       { question: "Which Prophet slept in a whale’s belly?", options: ["Isa", "Yusuf", "Musa", "Yunus"], answer: "Yunus" },
-      { question: "Which surah is often recited before sleep?", options: ["Ikhlas", "Fatiha", "Kahf", "Ya‑Sin"], answer: "Kahf" },
+      { question: "Which surah is often recited before sleep?", options: ["Nasr", "Mulk", "Zilzal", "Baqarah"], answer: "Mulk" },
       { question: "Who was thrown in the fire and saved?", options: ["Sad", "Ashab‑e Kehf", "Prophet Ibrahim", "Prophet Musa"], answer: "Prophet Ibrahim" },
       { question: "Which Prophet had a staff that spoke?", options: ["Musa", "Isa", "Ibrahim", "Nuh"], answer: "Musa" },
       { question: "Queen of Sheba ruled which land?", options: ["Egypt", "Sheba", "Rome", "Persia"], answer: "Sheba" },
