@@ -1,7 +1,7 @@
 let current = 0;
 let score = 0;
 let timer;
-let timeLeft = 30;
+let timeLeft = 40;
 let currentQuiz = null;
 let currentStudent = "";
 let currentLevel = null;
@@ -549,3 +549,4 @@ function addStudentInput(
 
   studentInputsDiv.appendChild(row);
 }
+
