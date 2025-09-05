@@ -198,7 +198,7 @@ function loadQuestion() {
   }
 
   clearInterval(timer);
-  timeLeft = 30;
+  timeLeft = 40;
   timerDisplay.textContent = timeLeft;
 
   const q = currentQuiz.questions[current];
@@ -549,4 +549,5 @@ function addStudentInput(
 
   studentInputsDiv.appendChild(row);
 }
+
 
