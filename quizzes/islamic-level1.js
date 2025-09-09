@@ -77,7 +77,7 @@ quizzes.push(
       { question: "What is the first surah of Quran?", options: ["Al-Baqarah", "Al-Fatiha", "Ya-Sin", "Ikhlas"], answer: "Al-Fatiha" },
       { question: "Which surah is the longest?", options: ["Al-Baqarah", "Ya-Sin", "Al-Fatiha", "Ikhlas"], answer: "Al-Baqarah" },
       { question: "Which surah is called the Heart of Quran?", options: ["Al-Baqarah", "Ya-Sin", "Al-Fatiha", "Ikhlas"], answer: "Ya-Sin" },
-      { question: "How many times is the word 'Allah' mentioned in Al-Fatiha?", options: ["3", "5", "7", "10"], answer: "1" },
+      { question: "How many times is the word 'Allah' mentioned in Al-Fatiha?", options: ["3", "1", "7", "5"], answer: "1" },
       { question: "Bismillah begins with which letter?", options: ["Alif", "Ba", "Ta", "Nun"], answer: "Ba" },
       { question: "Final ayah of Al-Ikhlas speaks about", options: ["Mercy and Kindness", "Oneness of Allah", "Creation of Humans", "Faith in Prophets"], answer: "Oneness of Allah" },
       { question: "Al-Fatiha has how many verses?", options: ["7", "5", "6", "8"], answer: "7" }
