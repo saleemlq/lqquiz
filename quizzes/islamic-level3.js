@@ -26,7 +26,7 @@ quizzes.push(
       { question: "Who was the first caliph?", options: ["Umar", "Ali", "Abu Bakr", "Uthman"], answer: "Abu Bakr" },
       { question: "Which companion was known as 'Sword of Allah'?", options: ["Uthman", "Ali", "Hamza", "Aisha"], answer: "Ali" },
       { question: "Where did Hijrah begin and end?", options: ["Makkah to Medina", "Medina to Makkah", "Medina to Taif", "Taif to Makkah"], answer: "Makkah to Medina" },
-      { question: "Which treaty opened Makkah?", options: ["Hudaybiyyah", "Hudaibiya", "Hajj", "Taif"], answer: "Hudaybiyyah" },
+      { question: "Which treaty opened the way for the Conquest of Makkah?", options: ["Treaty of Hudaybiyyah", "Treaty of Aqabah", "Treaty of Madinah", "Treaty of Najran"], answer: "Treaty of Hudaybiyyah" },
       { question: "Name the cave where Prophet hid in Makkah?", options: ["Thawr", "Hira", "Uhud", "Badr"], answer: "Thawr" },
       { question: "Which companion collected Quran in book form?", options: ["Ali", "Abu Bakr", "Umar", "Uthman"], answer: "Abu Bakr" }
     ]
