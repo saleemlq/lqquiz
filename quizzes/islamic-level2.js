@@ -43,7 +43,7 @@ quizzes.push(
       { question: "Which surah is often recited before sleep?", options: ["Nasr", "Mulk", "Zilzal", "Baqarah"], answer: "Mulk" },
       { question: "Who was thrown in the fire and saved?", options: ["Sad", "Ashab‑e Kehf", "Prophet Ibrahim", "Prophet Musa"], answer: "Prophet Ibrahim" },
       { question: "Which Prophet had a staff that spoke?", options: ["Musa", "Isa", "Ibrahim", "Nuh"], answer: "Musa" },
-      { question: "Queen of Sheba ruled which land?", options: ["Egypt", "Sheba", "Rome", "Persia"], answer: "Sheba" },
+      { question: "What happened when Prophet Musa (A.S.) threw his stick in front of the magicians?", options: ["It Broke", "It turned into a big snake", "It disappeared", "It became a bird"], answer: "It turned into a big snake" },
       { question: "Where did Prophet Musa receive the Torah?", options: ["Mount Sinai", "Mount Hira", "Mount Ararat", "Mount Uhud"], answer: "Mount Sinai" }
     ]
   },
