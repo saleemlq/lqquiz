@@ -20,7 +20,7 @@ quizzes.push(
     level: 2, quiz: 2,
     questions: [
       { question: "Which pillar involves fasting?", options: ["Zakat", "Salah", "Sawm", "Hajj"], answer: "Sawm" },
-      { question: "How many Zakat types?", options: ["2", "3", "4", "5"], answer: "4" },
+      { question: "What is the last month of the Islamic calendar", options: ["Muharram", "Ramadan", "Dhul-Hijjah", "Safar"], answer: "Dhul-Hijjah" },
       { question: "How many daily prayers?", options: ["3", "4", "5", "6"], answer: "5" },
       { question: "Which pillar is pilgrimage?", options: ["Hajj", "Sawm", "Zakat", "Salah"], answer: "Hajj" },
       { question: "Zakat is obligatory for who?", options: ["Every Muslim", "Rich Muslims", "Children", "Elderly"], answer: "Rich Muslims" },
