@@ -59,8 +59,8 @@ quizzes.push(
       { question: "After meals say?", options: ["MashaAllah", "Alhamdulillah", "SubhanAllah", "InshaAllah"], answer: "Alhamdulillah" },
       { question: "What do you say at good news?", options: ["MashaAllah", "Alhamdulillah", "SubhanAllah", "Bismillah"], answer: "MashaAllah" },
       { question: "When sneezing say?", options: ["SubhanAllah", "MashaAllah", "Alhamdulillah", "InshaAllah"], answer: "Alhamdulillah" },
-      { question: "Before entering home say?", options: ["Bismillah", "Alhamdulillah", "Assalamu alaikum", "SubhanAllah"], answer: "Bismillah" },
-      { question: "Before sleeping say?", options: ["Alhamdulillah", "Bismillah", "SubhanAllah", "InshaAllah"], answer: "Bismillah" }
+      { question: "While entering home say?", options: ["Bismillah", "Alhamdulillah", "Assalamu alaikum", "SubhanAllah"], answer: "Assalamu alaikum" },
+      { question: "Before sleeping say?", options: ["Alhamdulillah", "Allahuma Bismika", "SubhanAllah", "InshaAllah"], answer: "Allahuma Bismika" }
     ]
   },
   {
