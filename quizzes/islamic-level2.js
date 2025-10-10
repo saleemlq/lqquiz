@@ -76,7 +76,7 @@ quizzes.push(
       { question: "Islamic calendar is lunar or solar?", options: ["Solar", "Lunar", "Hybrid", "Gregorian"], answer: "Lunar" },
       { question: "Day of Arafah is on?", options: ["9 Dhul‑Hijjah", "10 Dhul‑Hijjah", "1 Muharram", "27 Ramadan"], answer: "9 Dhul‑Hijjah" },
       { question: "Festival of sacrifice celebrates?", options: ["Ramadan end", "Prophet’s birth", "Prophet’s death", "Hajj completion"], answer: "Hajj completion" },
-      { question: "Which month is forbidden to fight?", options: ["Ramadan", "Muharram", "Dhul‑Hijjah", "Shawwal"], answer: "Muharram" }
+      { question: "Which month is forbidden to fight?", options: ["Ramadan", "Muharram", "Rabi ul Awal", "Shawwal"], answer: "Muharram" }
     ]
   }
 );
