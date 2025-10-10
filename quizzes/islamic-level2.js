@@ -5,14 +5,14 @@ quizzes.push(
     questions: [
       { question: "What city did Prophet Muhammad migrate to?", options: ["Makkah", "Medina", "Jerusalem", "Taif"], answer: "Medina" },
       { question: "What was the first revelation of the Quran?", options: ["Al-Alaq", "Al-Fatiha", "Ya-Sin", "Ikhlas"], answer: "Al-Alaq" },
-      { question: "Who was the first martyr in Islam?", options: ["Bilal", "Sumayyah", "Umar", "Ali"], answer: "Sumayyah" },
+      { question: "Over how many years was the Qur'an revealed?", options: ["10 Years", "17 Years", "25 Years", "23 Years"], answer: "23 Years" },
       { question: "Where was the Battle of Badr?", options: ["Badr", "Uhud", "Khandaq", "Khaybar"], answer: "Badr" },
       { question: "Who was the mother of Prophet Isa (A.S)?", options: ["Aisha", "Khadijah", "Maryam", "Fatimah"], answer: "Maryam" },
       { question: "Which Prophet is associated with the Kaaba building?", options: ["Adam", "Ibrahim", "Muhammad", "Nuh"], answer: "Ibrahim" },
-      { question: "Prophet Musa received which commandment?", options: ["Ten", "Seven", "Four", "Twelve"], answer: "Ten" },
+      { question: "On which day was Prophet Muhammad (S.A.W.) born?", options: ["Monday", "Friday", "Tuesday", "Saturday"], answer: "Monday" },
       { question: "Who was Prophet Yusuf (Joseph)’s father?", options: ["Yaqoob AS", "Isaac AS", "Ibrahim AS", "Musa AS"], answer: "Yaqoob AS" },
       { question: "Which Prophet spoke in the lap of his mother as a baby?", options: ["Isa", "Nuh", "Adam", "Hud"], answer: "Isa" },
-      { question: "Which tribe helped rebuild Kaaba before Islam?", options: ["Quraysh", "Aws", "Thaqif", "Harith"], answer: "Quraysh" }
+      { question: "Who was the first Prophet of Allah?", options: ["Prophet Ibrahim (A.S.)", "Prophet Musa (A.S.)", "Prophet Adam (A.S.)", "Prophet Nuh (A.S.)"], answer: "Prophet Adam (A.S.)" }
     ]
   },
   {
