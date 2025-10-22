@@ -46,7 +46,7 @@ quizzes.push(
       { question: "Double Dammah adds what?", options: ["shaddah", "sukoon", "n sound", "stop"], answer: "n sound" },
       { question: "Sound of Dammah is like:", options: ["in 'boot'", "in 'bit'", "in 'hat'", "in 'run'"], answer: "in 'boot'" },
       { question: "Dammah goes with which shape?", options: ["circle", "dot", "tiny comma", "small waw"], answer: "small waw" },
-      { question: "How many Dammahs in: رُزِقُوا", options: ["1", "2", "3", "4"], answer: "1" }
+      { question: "How many Dammahs in: رُزِقُوا", options: ["1", "2", "3", "4"], answer: "2" }
     ]
   },
 
