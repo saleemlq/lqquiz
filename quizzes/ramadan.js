@@ -83,7 +83,7 @@ quizzes.push(
     { question: "Shared worship strengthens what?", options: ["Money", "Community", "Business", "Health"], answer: "Community" },
     { question: "Which charity is paid before Eid prayer?", options: ["Zakat", "Sadaqah", "Zakat-ul-Fitr", "Khairat"], answer: "Zakat-ul-Fitr" },
     { question: "Eid-ul-Fitr celebrates what?", options: ["Beginning of fasting", "End of fasting", "Hajj", "New year"], answer: "End of fasting" },
-    { question: "Eid prayer is offered?", options: ["Individually", "At home", "In congregation", "At night"], answer: "In congregation" },
+    { question: "Eid prayer is offered?", options: ["Individually", "At home", "In group", "At night"], answer: "In congregation" },
     { question: "Eid encourages sharing and?", options: ["Saving", "Pride", "Joy", "Silence"], answer: "Joy" },
     { question: "The real goal of Ramadan is to improve life?", options: ["Only in Ramadan", "For fun", "After Ramadan", "Only at Eid"], answer: "After Ramadan" },
     { question: "Ramadan trains Muslims for?", options: ["Luxury life", "Discipline", "Business", "Travel"], answer: "Discipline" }
