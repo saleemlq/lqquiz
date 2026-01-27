@@ -48,7 +48,7 @@ quizzes.push(
     { question: "Taraweeh prayer is considered?", options: ["Farz", "Wajib", "Sunnah", "Forbidden"], answer: "Sunnah" },
 
     { question: "Muslims try to complete what during Ramadan?", options: ["Hadith", "Sehri", "Quran", "Tafsir"], answer: "Quran" },
-    { question: "Fasting includes avoiding which behavior?", options: ["Talking", "Walking", "Lying", "Reading"], answer: "Lying" },
+    { question: "While fasting, Muslims should especially avoid:", options: ["Sleeping", "Arguing", "Walking", "Reading"], answer: "Arguing" },
     { question: "Sleeping all day during fasting is?", options: ["Encouraged", "Required", "Not the goal", "Rewarded"], answer: "Not the goal" },
     { question: "Proper Sehri helps maintain what?", options: ["Sleep", "Energy", "Speed", "Weight"], answer: "Energy" },
     { question: "Why is hydration important at night?", options: ["For fun", "For taste", "For health", "For prayer"], answer: "For health" },
