@@ -1,8 +1,8 @@
 quizzes.push(
 
-/* ===================== CHAPTER 1 ===================== */
+/* ===================== CHAPTER 1A ===================== */
 {
-  title: "Chapter 1: Core Knowledge of Ramadan",
+  title: "Chapter 1: Core Knowledge of Ramadan (Basics)",
   level: "Ramadan",
   quiz: 1,
   questions: [
@@ -15,8 +15,16 @@ quizzes.push(
     { question: "At what time does fasting begin?", options: ["Sunrise", "Midnight", "Fajr", "Zuhr"], answer: "Fajr" },
     { question: "At what time does fasting end?", options: ["Asr", "Maghrib", "Isha", "Midnight"], answer: "Maghrib" },
     { question: "Which action breaks a fast intentionally?", options: ["Sleeping", "Eating", "Walking", "Reading"], answer: "Eating" },
-    { question: "What is required before starting a fast?", options: ["Food", "Prayer", "Intention", "Charity"], answer: "Intention" },
+    { question: "What is required before starting a fast?", options: ["Food", "Prayer", "Intention", "Charity"], answer: "Intention" }
+  ]
+},
 
+/* ===================== CHAPTER 1B ===================== */
+{
+  title: "Chapter 2: Core Knowledge of Ramadan (Understanding)",
+  level: "Ramadan",
+  quiz: 2,
+  questions: [
     { question: "Who is allowed not to fast?", options: ["Rich people", "Sick people", "Students", "Workers"], answer: "Sick people" },
     { question: "How many days can Ramadan last?", options: ["28 or 29", "29 or 30", "30 or 31", "31 or 32"], answer: "29 or 30" },
     { question: "In which month was the Quran revealed?", options: ["Rajab", "Shaban", "Ramadan", "Muharram"], answer: "Ramadan" },
@@ -30,11 +38,11 @@ quizzes.push(
   ]
 },
 
-/* ===================== CHAPTER 2 ===================== */
+/* ===================== CHAPTER 2A ===================== */
 {
-  title: "Chapter 2: Daily Practices in Ramadan",
+  title: "Chapter 3: Meals & Prayers",
   level: "Ramadan",
-  quiz: 2,
+  quiz: 3,
   questions: [
     { question: "What is the pre-dawn meal called?", options: ["Iftar", "Sehri", "Dinner", "Lunch"], answer: "Sehri" },
     { question: "Sehri is eaten before which prayer?", options: ["Zuhr", "Asr", "Fajr", "Isha"], answer: "Fajr" },
@@ -45,8 +53,16 @@ quizzes.push(
     { question: "Which prayer remains compulsory during Ramadan?", options: ["Taraweeh", "Tahajjud", "Five daily prayers", "Eid prayer"], answer: "Five daily prayers" },
     { question: "What is Taraweeh?", options: ["Morning prayer", "Night prayer", "Eid prayer", "Friday prayer"], answer: "Night prayer" },
     { question: "Taraweeh is offered after which prayer?", options: ["Maghrib", "Isha", "Asr", "Fajr"], answer: "Isha" },
-    { question: "Taraweeh prayer is considered?", options: ["Farz", "Wajib", "Sunnah", "Forbidden"], answer: "Sunnah" },
+    { question: "Taraweeh prayer is considered?", options: ["Farz", "Wajib", "Sunnah", "Forbidden"], answer: "Sunnah" }
+  ]
+},
 
+/* ===================== CHAPTER 2B ===================== */
+{
+  title: "Chapter 4: Habits & Routine",
+  level: "Ramadan",
+  quiz: 4,
+  questions: [
     { question: "Muslims try to complete what during Ramadan?", options: ["Hadith", "Sehri", "Quran", "Tafsir"], answer: "Quran" },
     { question: "While fasting, Muslims should especially avoid:", options: ["Sleeping", "Arguing", "Walking", "Reading"], answer: "Arguing" },
     { question: "Sleeping all day during fasting is?", options: ["Encouraged", "Required", "Not the goal", "Rewarded"], answer: "Not the goal" },
@@ -60,11 +76,11 @@ quizzes.push(
   ]
 },
 
-/* ===================== CHAPTER 3 ===================== */
+/* ===================== CHAPTER 3A ===================== */
 {
-  title: "Chapter 3: Special Nights, Charity & Eid",
+  title: "Chapter 5: Special Nights & Worship",
   level: "Ramadan",
-  quiz: 3,
+  quiz: 5,
   questions: [
     { question: "Which part of Ramadan is most important spiritually?", options: ["First ten days", "Middle ten days", "Last ten days", "Whole month equally"], answer: "Last ten days" },
     { question: "Laylat-ul-Qadr occurs in which period?", options: ["First ten nights", "Middle ten nights", "Last ten nights", "Only Eid night"], answer: "Last ten nights" },
@@ -75,8 +91,16 @@ quizzes.push(
     { question: "I‘tikaf is usually done during?", options: ["First week", "Middle week", "Last ten days", "Eid day"], answer: "Last ten days" },
     { question: "What is obligatory charity called?", options: ["Sadaqah", "Gift", "Zakat", "Donation"], answer: "Zakat" },
     { question: "Voluntary charity is called?", options: ["Zakat", "Tax", "Sadaqah", "Loan"], answer: "Sadaqah" },
-    { question: "Feeding a fasting person gives what?", options: ["Food", "Money", "Equal reward", "Time"], answer: "Equal reward" },
+    { question: "Feeding a fasting person gives what?", options: ["Food", "Money", "Equal reward", "Time"], answer: "Equal reward" }
+  ]
+},
 
+/* ===================== CHAPTER 3B ===================== */
+{
+  title: "Chapter 6: Charity, Eid & Life Lessons",
+  level: "Ramadan",
+  quiz: 6,
+  questions: [
     { question: "Ramadan increases awareness of what?", options: ["Luxury", "Hunger", "Wealth", "Power"], answer: "Hunger" },
     { question: "Feeling hunger builds empathy for?", options: ["Friends", "Family", "Poor", "Teachers"], answer: "Poor" },
     { question: "Families often do what together in Ramadan?", options: ["Travel", "Eat Iftar", "Sleep", "Shop"], answer: "Eat Iftar" },
